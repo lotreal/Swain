@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity
         Log.d("MAIN", am.toString());
         Log.d("MAIN", am2.toString());
         Log.d("MAIN", new Diana().getConfig().toString());
+        Log.d("MAIN", new Diana().getContext().toString());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

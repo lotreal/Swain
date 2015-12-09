@@ -12,6 +12,9 @@ public class Diana {
     @Inject
     Config config;
 
+    @Inject
+    Context context;
+
     public Diana() {
         ObjectGraph objectGraph = ObjectGraph.create(DianaModule.class);
         objectGraph.inject(this);
@@ -19,5 +22,9 @@ public class Diana {
 
     public Config getConfig() {
         return config;
+    }
+
+    public Context getContext() {
+        return context;
     }
 }
