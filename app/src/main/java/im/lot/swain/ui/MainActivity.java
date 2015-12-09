@@ -1,25 +1,45 @@
-package im.lot.swain;
+package im.lot.swain.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import javax.inject.Inject;
+
+import im.lot.diana.Diana;
+import im.lot.swain.App;
+import im.lot.swain.R;
+import im.lot.swain.domain.AnalyticsManager;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    @Inject
+    AnalyticsManager am;
+    @Inject
+    AnalyticsManager am2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ((App) getApplication()).inject(this);
+        Log.d("MAIN", am.toString());
+        Log.d("MAIN", am2.toString());
+        Log.d("MAIN", new Diana().getConfig().toString());
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -68,6 +88,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Log.d("MAIN", am.toString());
+            startActivity(new Intent(getApplication(), SettingsActivity.class));
             return true;
         }
 
