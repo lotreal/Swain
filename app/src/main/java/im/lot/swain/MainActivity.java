@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity
 
     @Inject
     Config config;
+    @Inject
+    Config config2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity
 
         App.component(this).inject(this);
         Log.d("MAIN", config.toString());
+        Log.d("MAIN", config2.toString());
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
