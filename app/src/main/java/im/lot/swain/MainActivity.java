@@ -1,5 +1,6 @@
 package im.lot.swain;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -16,6 +17,8 @@ import android.view.View;
 
 import javax.inject.Inject;
 
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         App.component(this).inject(this);
+        ButterKnife.bind(this);
         Log.d("MAIN", config.toString());
         Log.d("MAIN", config2.toString());
 
@@ -82,6 +86,10 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent();
+            intent.putExtra("config", new Config());
+            intent.setClass(getApplicationContext(), AboutActivity.class);
+            startActivity(intent);
             return true;
         }
 
