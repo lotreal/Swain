@@ -1,16 +1,12 @@
 package dm.diana.codegen;
 
-import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
+
+import javax.lang.model.element.Element;
+
 import dagger.internal.codegen.writer.MethodWriter;
 import dagger.internal.codegen.writer.TypeName;
 import dm.diana.annotation.InjectExtra;
-
-import com.google.auto.common.MoreTypes;
-import com.google.common.collect.ImmutableSet;
-
-import java.lang.annotation.Annotation;
-
-import javax.lang.model.element.Element;
 
 /**
  * Created by luotao on 15/12/15.
@@ -31,7 +27,7 @@ public class DianaGenerator {
     KeyType keyType = KeyType.create(KeyType.Kind.DIANA, injectedTypeName);
     ImmutableSet<Element> elements = dianaProcessor.registry.get(keyType);
 
-    for (Element element: elements) {
+    for (Element element : elements) {
       InjectExtra injectExtra = element.getAnnotation(InjectExtra.class);
 
       injectMembersWriter.body().addSnippet(

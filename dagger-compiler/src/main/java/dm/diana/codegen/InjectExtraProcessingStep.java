@@ -9,8 +9,9 @@ import java.util.Set;
 
 import javax.lang.model.element.Element;
 
-// TODO: import butterknife.Bind;
 import dm.diana.annotation.InjectExtra;
+
+// TODO: import butterknife.Bind;
 
 /**
  * Created by luotao on 15/12/14.
@@ -22,7 +23,8 @@ public class InjectExtraProcessingStep implements BasicAnnotationProcessor.Proce
   }
 
   @Override
-  public Set<Element> process(SetMultimap<Class<? extends Annotation>, Element> elementsByAnnotation) {
+  public Set<Element> process(
+      SetMultimap<Class<? extends Annotation>, Element> elementsByAnnotation) {
     register(elementsByAnnotation, InjectExtra.class, KeyType.Kind.DIANA);
     // register(elementsByAnnotation, Bind.class, KeyType.Kind.BUTTER_KNIFE);
 
@@ -30,9 +32,10 @@ public class InjectExtraProcessingStep implements BasicAnnotationProcessor.Proce
     return ImmutableSet.of();
   }
 
-  private void register(SetMultimap<Class<? extends Annotation>, Element> elementsByAnnotation,
-                        Class<? extends Annotation> annotation,
-                        KeyType.Kind kind) {
+  private void register(
+      SetMultimap<Class<? extends Annotation>, Element> elementsByAnnotation,
+      Class<? extends Annotation> annotation,
+      KeyType.Kind kind) {
     Set<Element> elements = elementsByAnnotation.get(annotation);
     DianaProcessor dianaProcessor = DianaProcessor.getInstance();
 
