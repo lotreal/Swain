@@ -14,10 +14,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import dm.diana.annotation.InjectExtra;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity
     Config config;
     @Inject
     Config config2;
+
+    @InjectExtra(value = "textView")
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

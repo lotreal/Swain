@@ -1,1 +1,1 @@
-include ':app', ':dagger-compiler'
+include ':app', ':dagger-compiler', ':diana'

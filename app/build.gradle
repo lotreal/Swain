@@ -25,16 +25,12 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
-
     compile 'com.google.dagger:dagger:2.1-SNAPSHOT'
     apt project(':dagger-compiler')
-
     compile 'com.hannesdorfmann.annotationprocessing101.factorypattern:annotation:1.0'
     apt 'com.hannesdorfmann.annotationprocessing101.factorypattern:processor:1.0'
-
     compile 'com.jakewharton:butterknife:8.0.0-SNAPSHOT'
     apt 'com.jakewharton:butterknife-compiler:8.0.0-SNAPSHOT'
-
     provided 'javax.annotation:javax.annotation-api:1.2'
-
+    compile project(':diana')
 }

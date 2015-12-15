@@ -11,7 +11,8 @@ import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import im.lot.swain.annotation.InjectExtra;
+import dm.diana.annotation.InjectExtra;
+
 
 public class AboutActivity extends AppCompatActivity {
     @Bind(value = R.id.textView2)
@@ -19,6 +20,12 @@ public class AboutActivity extends AppCompatActivity {
 
     @InjectExtra(value = "config", optional = true)
     Config config;
+
+    @InjectExtra(value = "config", optional = true)
+    Config config2;
+
+    @InjectExtra(value = "config", optional = true)
+    Config config3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
