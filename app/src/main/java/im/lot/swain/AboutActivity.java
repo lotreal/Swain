@@ -11,12 +11,10 @@ import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.BindString;
-import dm.diana.annotation.InjectExtra;
-
+import dm.annotation.InjectExtra;
 
 public class AboutActivity extends AppCompatActivity {
     @Bind(value = R.id.textView2)
-    @InjectExtra(value = "config", optional = true)
     TextView textView2;
 
     @BindString(value = R.string.app_name)
@@ -43,12 +41,11 @@ public class AboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                    .setAction("Action", null).show();
             }
         });
 
         App.component(this).inject(this);
-        AboutActivityMyInjector.inject(this);
 
         Log.d("MAIN ABOUT", config.toString());
         Log.d("MAIN ABOUT", textView2.toString());

@@ -6,7 +6,7 @@ import javax.lang.model.element.Element;
 
 import dagger.internal.codegen.writer.MethodWriter;
 import dagger.internal.codegen.writer.TypeName;
-import dm.dagger.internal.InjectExtra;
+import dm.annotation.InjectExtra;
 
 /**
  * Created by luotao on 15/12/15.

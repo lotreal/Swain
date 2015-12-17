@@ -23,7 +23,7 @@ public class DianaProcessingStep implements BasicAnnotationProcessor.ProcessingS
 
   public DianaProcessingStep() {
     ImmutableSetMultimap.Builder<Kind, String> annotationNameBuilder = ImmutableSetMultimap.builder();
-    annotationNameBuilder.putAll(Kind.DIANA, "dm.dagger.internal.InjectExtra");
+    annotationNameBuilder.putAll(Kind.DIANA, "dm.annotation.InjectExtra");
 
     annotationNameBuilder.putAll(Kind.BUTTER_KNIFE,
         "butterknife.Bind",

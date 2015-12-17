@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
-import dm.diana.annotation.InjectExtra;
+import dm.annotation.InjectExtra;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

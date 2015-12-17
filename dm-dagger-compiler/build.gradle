@@ -1,0 +1,18 @@
+apply plugin: 'propdeps'
+apply plugin: 'java'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    provided 'com.google.auto.service:auto-service:1.0-rc2'
+    provided 'com.google.auto.value:auto-value:1.0'
+    compile 'com.google.dagger:dagger:2.1-SNAPSHOT'
+    compile 'com.google.dagger:dagger-producers:2.1-SNAPSHOT'
+    compile 'com.google.auto:auto-common:1.0-SNAPSHOT'
+    compile 'com.google.guava:guava:19.0-rc2'
+    compile 'com.google.code.findbugs:jsr305:2.0.1'
+    compile 'com.google.googlejavaformat:google-java-format:0.1-SNAPSHOT'
+    compile project(':dm-annotations')
+}

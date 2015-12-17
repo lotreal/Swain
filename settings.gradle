@@ -1,1 +1,1 @@
-include ':app', ':dagger-compiler', ':diana'
+include ':app', ':dm-dagger-compiler', ':dm-annotations'
