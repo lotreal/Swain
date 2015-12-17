@@ -10,13 +10,18 @@ import android.view.View;
 import android.widget.TextView;
 
 import butterknife.Bind;
+import butterknife.BindString;
 import butterknife.ButterKnife;
 import dm.diana.annotation.InjectExtra;
 
 
 public class AboutActivity extends AppCompatActivity {
     @Bind(value = R.id.textView2)
+    @InjectExtra(value = "config", optional = true)
     TextView textView2;
+
+    @BindString(value = R.string.app_name)
+    String appName;
 
     @InjectExtra(value = "config", optional = true)
     Config config;

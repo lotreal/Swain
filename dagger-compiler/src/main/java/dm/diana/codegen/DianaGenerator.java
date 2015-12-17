@@ -45,7 +45,7 @@ public class DianaGenerator {
 
     if (elements.size() > 0) {
       injectMembersWriter.body().addSnippet(
-          "ButterKnife.bind(instance);"
+          "%s.bind(instance);", "butterknife.ButterKnife"
       );
     }
   }

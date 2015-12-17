@@ -21,7 +21,7 @@ public class DianaProcessor {
 
   public void register(KeyType.Kind kind, Element element) {
     TypeName typeName = TypeNames.forTypeMirror(element.getEnclosingElement().asType());
-    KeyType keyType = KeyType.create(KeyType.Kind.DIANA, typeName);
+    KeyType keyType = KeyType.create(kind, typeName);
     registryBuilder.put(keyType, element);
   }
 
