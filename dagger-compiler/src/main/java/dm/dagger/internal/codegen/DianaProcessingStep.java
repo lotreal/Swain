@@ -1,4 +1,4 @@
-package dm.diana.codegen;
+package dm.dagger.internal.codegen;
 
 import com.google.auto.common.BasicAnnotationProcessor;
 import com.google.common.base.Optional;
@@ -10,10 +10,7 @@ import java.lang.annotation.Annotation;
 import java.util.Set;
 
 import javax.lang.model.element.Element;
-
-import dm.diana.annotation.InjectExtra;
-
-import static dm.diana.codegen.KeyType.Kind;
+import static dm.dagger.internal.codegen.KeyType.Kind;
 
 /**
  * Created by luotao on 15/12/14.
@@ -22,11 +19,12 @@ public class DianaProcessingStep implements BasicAnnotationProcessor.ProcessingS
   DianaProcessor dianaProcessor = DianaProcessor.getInstance();
 
   ImmutableSetMultimap<Kind, String> annotationNames;
-
   ImmutableSetMultimap<Kind, Class<? extends Annotation>> availableAnnotations;
 
   public DianaProcessingStep() {
     ImmutableSetMultimap.Builder<Kind, String> annotationNameBuilder = ImmutableSetMultimap.builder();
+    annotationNameBuilder.putAll(Kind.DIANA, "dm.dagger.internal.InjectExtra");
+
     annotationNameBuilder.putAll(Kind.BUTTER_KNIFE,
         "butterknife.Bind",
         "butterknife.BindArray",
@@ -51,14 +49,10 @@ public class DianaProcessingStep implements BasicAnnotationProcessor.ProcessingS
         "butterknife.Optional",
         "butterknife.Unbinder"
     );
-
     annotationNames = annotationNameBuilder.build();
 
     ImmutableSetMultimap.Builder<Kind, Class<? extends Annotation>>
         availableAnnotationBuilder = ImmutableSetMultimap.builder();
-
-    availableAnnotationBuilder.put(Kind.DIANA, InjectExtra.class);
-
     for (Kind kind : annotationNames.keySet()) {
       for (String annotationName : annotationNames.get(kind)) {
         Optional<Class<? extends Annotation>> annotation = findAnnotation(annotationName);
@@ -67,7 +61,6 @@ public class DianaProcessingStep implements BasicAnnotationProcessor.ProcessingS
         }
       }
     }
-
     availableAnnotations = availableAnnotationBuilder.build();
   }
 
@@ -76,7 +69,7 @@ public class DianaProcessingStep implements BasicAnnotationProcessor.ProcessingS
       Class<? extends Annotation> annotation = (Class<? extends Annotation>) Class.forName(classname);
       return Optional.<Class<? extends Annotation>>of(annotation);
     } catch (ClassNotFoundException e) {
-      return Optional.<Class<? extends Annotation>>absent();
+      return Optional.absent();
     }
   }
 

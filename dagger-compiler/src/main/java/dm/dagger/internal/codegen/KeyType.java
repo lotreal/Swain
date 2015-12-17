@@ -1,4 +1,4 @@
-package dm.diana.codegen;
+package dm.dagger.internal.codegen;
 
 import com.google.auto.value.AutoValue;
 

@@ -1,4 +1,4 @@
-package dm.diana.codegen;
+package dm.dagger.internal.codegen;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -6,7 +6,7 @@ import javax.lang.model.element.Element;
 
 import dagger.internal.codegen.writer.MethodWriter;
 import dagger.internal.codegen.writer.TypeName;
-import dm.diana.annotation.InjectExtra;
+import dm.dagger.internal.InjectExtra;
 
 /**
  * Created by luotao on 15/12/15.

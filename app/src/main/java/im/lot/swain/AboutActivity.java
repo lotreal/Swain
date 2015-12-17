@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.BindString;
-import butterknife.ButterKnife;
 import dm.diana.annotation.InjectExtra;
 
 
@@ -50,7 +49,6 @@ public class AboutActivity extends AppCompatActivity {
 
         App.component(this).inject(this);
         AboutActivityMyInjector.inject(this);
-        ButterKnife.bind(this);
 
         Log.d("MAIN ABOUT", config.toString());
         Log.d("MAIN ABOUT", textView2.toString());

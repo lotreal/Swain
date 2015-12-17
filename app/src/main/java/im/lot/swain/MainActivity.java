@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
-import butterknife.ButterKnife;
 import dm.diana.annotation.InjectExtra;
 
 public class MainActivity extends AppCompatActivity
@@ -38,10 +37,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         App.component(this).inject(this);
-        ButterKnife.bind(this);
+
         Log.d("MAIN", config.toString());
         Log.d("MAIN", config2.toString());
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
