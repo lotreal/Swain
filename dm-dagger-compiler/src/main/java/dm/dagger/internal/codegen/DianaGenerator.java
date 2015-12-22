@@ -2,11 +2,12 @@ package dm.dagger.internal.codegen;
 
 import com.google.common.collect.ImmutableSet;
 
+import org.joor.Reflect;
+
 import javax.lang.model.element.Element;
 
 import dagger.internal.codegen.writer.MethodWriter;
 import dagger.internal.codegen.writer.TypeName;
-import dm.annotation.InjectExtra;
 
 /**
  * Created by luotao on 15/12/15.
@@ -28,12 +29,8 @@ public class DianaGenerator {
     ImmutableSet<Element> elements = dianaProcessor.registry.get(keyType);
 
     for (Element element : elements) {
-      InjectExtra injectExtra = element.getAnnotation(InjectExtra.class);
-
-      injectMembersWriter.body().addSnippet(
-          "instance.%s = (%s) instance.getIntent().getSerializableExtra(\"%s\");",
-          element.getSimpleName(), element.asType(), injectExtra.value()
-      );
+      String snippet = Reflect.on("dm.annotation.InjectExtraProcessor").create().call("process", element).get();
+      injectMembersWriter.body().addSnippet(snippet);
     }
   }
 

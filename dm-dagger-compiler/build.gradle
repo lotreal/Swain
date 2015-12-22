@@ -14,5 +14,5 @@ dependencies {
     compile 'com.google.guava:guava:19.0-rc2'
     compile 'com.google.code.findbugs:jsr305:2.0.1'
     compile 'com.google.googlejavaformat:google-java-format:0.1-SNAPSHOT'
-    compile project(':dm-annotations')
+    compile 'org.jooq:joor:0.9.5'
 }
