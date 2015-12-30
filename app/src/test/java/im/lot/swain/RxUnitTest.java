@@ -13,16 +13,15 @@ import static org.junit.Assert.assertEquals;
  */
 public class RxUnitTest {
     @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
-
-        Observable<String> myObservable = Observable.just("hello world");
-
-        myObservable.subscribe(new Action1<String>() {
+    public void helloworld() throws Exception {
+        Observable.just("Hello, world!").subscribe(new Action1<String>() {
             @Override
             public void call(String s) {
                 System.out.println(s);
             }
         });
+
+        Observable.just("Hello, world!")
+            .subscribe(s -> System.out.println(s));
     }
 }
